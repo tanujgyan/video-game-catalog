@@ -1,0 +1,16 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Videogame Title</th>
+        <th>Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let videogame of videogames">
+        <td>{{ videogame.videogameId }}</td>
+        <td>{{ videogame.videogameName }}</td>
+        <td>{{ videogame.publisherName }}</td>
+      </tr>
+    </tbody>
+  </table>
