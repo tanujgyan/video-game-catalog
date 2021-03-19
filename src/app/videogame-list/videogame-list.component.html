@@ -1,16 +1,22 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-    <thead>
+<table id ="videogameslist" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" class="table table-bordered table-hover table-sm" >
+    <thead class="thead-dark">
       <tr>
-        <th>ID</th>
-        <th>Videogame Title</th>
-        <th>Publisher</th>
+        <th data-visible="false">ID</th>
+        <th >Videogame Title</th>
+        <th >Publisher</th>
+        <th >Genere</th>
+        <th >Platform</th>
+        <th >Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let videogame of videogames">
-        <td>{{ videogame.videogameId }}</td>
+        <td data-visible="false">{{ videogame.videogameId }}</td>
         <td>{{ videogame.videogameName }}</td>
         <td>{{ videogame.publisherName }}</td>
+        <td>{{ videogame.genere }}</td>
+        <td>{{ videogame.platform }}</td>
+        <td><button (onclick)="renderer" id="editbutton" class="btn btn-primary">Edit</button></td>
       </tr>
     </tbody>
   </table>

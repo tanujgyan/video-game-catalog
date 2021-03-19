@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditVideogameComponent } from './edit-videogame.component';
+import { VideogameEditComponent } from './videogame-edit.component';
 
-describe('EditVideogameComponent', () => {
-  let component: EditVideogameComponent;
-  let fixture: ComponentFixture<EditVideogameComponent>;
+describe('VideogameEditComponent', () => {
+  let component: VideogameEditComponent;
+  let fixture: ComponentFixture<VideogameEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditVideogameComponent ]
+      declarations: [ VideogameEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditVideogameComponent);
+    fixture = TestBed.createComponent(VideogameEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,13 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VideogameListComponent } from './videogame-list/videogame-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EditVideogameComponent } from './edit-videogame/edit-videogame.component';
+
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VideogameEditComponent } from './videogame-edit/videogame-edit.component';
+
+
 const appRoutes: Routes = [
-  { path: 'edit-videogame', component: EditVideogameComponent },
+  
   { path: 'videogame-list', component: VideogameListComponent },
+  
+  { path: 'videogame-edit/:id', component: VideogameEditComponent },
+  { path: 'videogame-edit', component: VideogameEditComponent },
   { path: '',   redirectTo: '/videogame-list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -19,8 +25,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     VideogameListComponent,
-    EditVideogameComponent,
-    PageNotFoundComponent,   
+  
+    PageNotFoundComponent,
+  
+    VideogameEditComponent,
+  
+    
+  
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<div class="form-style">
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="form-width" >
+  <div class="form-group">
+<label for="videogametitle">Videogame Title:</label>
+    <input type="text" formControlName="videogameName" id="videogametitle" class="form-control" >
+</div>
+<div class="form-group">
+  <label for="publisherName">
+    Publisher Name: </label>
+    <input type="text" formControlName="publisherName" id="publisherName" class="form-control" >
+ 
+</div>
+<div class="form-group">
+  <label>
+    Genere:</label>
+    <input type="text" formControlName="genere" class="form-control" >
+  
+</div>
+<div class="form-group">
+<label>
+    Platform:</label>
+    <input type="text"formControlName ="platform" class="form-control" >
+  
+</div>
+  <button type="submit" class="btn btn-primary" >Add</button>
+
+</form>
+</div>
