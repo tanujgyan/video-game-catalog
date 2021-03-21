@@ -25,7 +25,7 @@
     <input type="text"formControlName ="platform" class="form-control" >
   
 </div>
-  <button [disabled]="form.invalid"type="submit" class="btn btn-primary" >{{btnName}}</button>
+  <button #submitButton [disabled]="form.invalid"type="submit" class="btn btn-primary" id="upsert">{{btnName}}</button>
 
 </form>
 </div>

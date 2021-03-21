@@ -1,5 +1,5 @@
 import { VideogameModel } from './../shared/videogame-model';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VideogameServiceService } from '../shared/videogame-service.service';
 import { HttpClient } from '@angular/common/http';
@@ -16,8 +16,9 @@ export class VideogameEditComponent implements OnInit {
   form: FormGroup;
   selectedId: any;
   btnName:string="";
+
+
   constructor(
-    private httpClient: HttpClient,
     public service: VideogameServiceService,
     public fb: FormBuilder,
     private route: ActivatedRoute,
@@ -25,7 +26,7 @@ export class VideogameEditComponent implements OnInit {
   ) {
     this.form = this.fb.group({
      
-      //videogameId:[''],
+      videogameId:[''],
       videogameName: ['',Validators.required],
       publisherName: ['',Validators.required],
       platform: ['',Validators.required],
@@ -33,9 +34,14 @@ export class VideogameEditComponent implements OnInit {
     });
   }
 
+  @ViewChild('submitButton', {read: ElementRef}) submitButton? : ElementRef;
+
   ngOnInit() {
-    this.selectedId = this.route.snapshot.paramMap.get('id');
-    this.service.getVideogame(parseInt(this.selectedId));
+    
+    if(this.selectedId==undefined)
+    this.selectedId = this.route.snapshot.paramMap.get('id')!=undefined?this.route.snapshot.paramMap.get('id'):0;
+    
+    //this.service.getVideogame(parseInt(this.selectedId));
     if (parseInt(this.selectedId) > 0)
     {
       this.btnName="Update";
@@ -53,7 +59,6 @@ export class VideogameEditComponent implements OnInit {
   submitForm() { 
     this.service.postNewVideogame(this.form.value).subscribe(
       (res) => {
-        console.log(res);
         alert(this.btnName+" successful")
         this.router.navigate(["/videogame-list"]);
       },

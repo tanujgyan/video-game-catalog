@@ -5,7 +5,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { VideogameServiceService } from '../shared/videogame-service.service';
 import { map } from 'rxjs/operators';
-
+import { DataTablesModule } from 'angular-datatables';
 @Component({
   selector: 'app-videogame-list',
   templateUrl: 'videogame-list.component.html',
@@ -58,6 +58,9 @@ export class VideogameListComponent implements OnDestroy, OnInit {
       this.videogames = data as any;
       // Calling the DT trigger to manually render the table
       this.dtTrigger.next();
+    },
+    ()=>{
+      alert("Internal Server Error.There was an error retrieving your request. Please contact support");
     });
     
     

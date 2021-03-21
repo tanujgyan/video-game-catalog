@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class VideogameServiceService {
   constructor(private http: HttpClient) {}
-  readonly baseURL = 'http://localhost:57363/api/Videogames';
+  readonly baseURL = 'http://localhost:49160/api/Videogame';
   getVideogameList(): Observable<VideogameModel[]> {
     return this.http.get<VideogameModel[]>(this.baseURL);
   }
