@@ -8,7 +8,7 @@ import { VideogameServiceService } from './videogame-service.service';
 import { of } from 'rxjs/internal/observable/of';
 import { toArray } from 'rxjs/operators';
 
-fdescribe('VideogameServiceService', () => {
+describe('VideogameServiceService', () => {
   let service: VideogameServiceService;
 let httpClientMock: jasmine.SpyObj<HttpClient>;
   beforeEach(() => {
@@ -42,20 +42,22 @@ service.getVideogameList().subscribe(
 )
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-it('should contain status code 201 for put request',() =>{
+it('get should contain response status code 200',() =>{
+  let videogameId=1;
+  httpClientMock.get.and.returnValue(of(new HttpResponse({status:200,body:[{
+    videogameId:1,
+  videogameName:'God of War v2',
+  publisherName:'Santa Monica',
+  platform:'PS4',
+  genere:'Action'
+  }]})));
+service.getVideogame(videogameId).subscribe(
+  (result)=>{  
+    expect(JSON.stringify(result)).toContain('200');
+  }
+)
+})
+it('should contain status code 204 for put request',() =>{
 let videogame={
   videogameId:1,
   videogameName:'God of War v2',

@@ -69,4 +69,8 @@ export class VideogameEditComponent implements OnInit {
     );
   }
   get videogameName() { return this.form.get('videogameName'); }
+  get publisherName() { return this.form.get('publisherName'); }
+  get genere() { return this.form.get('genere'); }
+  get platform() { return this.form.get('platform'); }
+  
 }

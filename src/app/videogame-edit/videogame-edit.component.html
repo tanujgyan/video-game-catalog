@@ -11,19 +11,22 @@
   <label for="publisherName">
     Publisher Name: </label>
     <input type="text" formControlName="publisherName" id="publisherName" class="form-control" >
- 
+    <div *ngIf="publisherName?.invalid && (publisherName?.dirty || publisherName?.touched)"
+    class="alert alert-danger">Publisher Name is required</div>
 </div>
 <div class="form-group">
   <label>
     Genere:</label>
     <input type="text" formControlName="genere" class="form-control" >
-  
+    <div *ngIf="genere?.invalid && (genere?.dirty || genere?.touched)"
+    class="alert alert-danger">Genere is required</div>
 </div>
 <div class="form-group">
 <label>
     Platform:</label>
     <input type="text"formControlName ="platform" class="form-control" >
-  
+    <div *ngIf="platform?.invalid && (platform?.dirty || platform?.touched)"
+    class="alert alert-danger">Platform is required</div>
 </div>
   <button #submitButton [disabled]="form.invalid"type="submit" class="btn btn-primary" id="upsert">{{btnName}}</button>
 
