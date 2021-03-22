@@ -2,33 +2,35 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()" class="form-width" >
   <div class="form-group">
 <label for="videogametitle">Videogame Title:</label>
-    <input required  type="text" formControlName="videogameName" id="videogametitle" class="form-control" >
+    <input maxlength="100" required  type="text" formControlName="videogameName" id="videogametitle" class="form-control" >
     <div *ngIf="videogameName?.invalid && (videogameName?.dirty || videogameName?.touched)"
-    class="alert alert-danger">Name is required</div>
+    class="alert alert-danger">Videogame Title is required</div>
     
 </div>
 <div class="form-group">
   <label for="publisherName">
     Publisher Name: </label>
-    <input type="text" formControlName="publisherName" id="publisherName" class="form-control" >
+    <input type="text" maxlength="50" formControlName="publisherName" id="publisherName" class="form-control" >
     <div *ngIf="publisherName?.invalid && (publisherName?.dirty || publisherName?.touched)"
     class="alert alert-danger">Publisher Name is required</div>
 </div>
 <div class="form-group">
   <label>
     Genere:</label>
-    <input type="text" formControlName="genere" class="form-control" >
+    <input type="text" formControlName="genere" class="form-control" maxlength="50" >
     <div *ngIf="genere?.invalid && (genere?.dirty || genere?.touched)"
     class="alert alert-danger">Genere is required</div>
 </div>
 <div class="form-group">
 <label>
     Platform:</label>
-    <input type="text"formControlName ="platform" class="form-control" >
+    <input type="text"formControlName ="platform" class="form-control" maxlength="50">
     <div *ngIf="platform?.invalid && (platform?.dirty || platform?.touched)"
     class="alert alert-danger">Platform is required</div>
 </div>
-  <button #submitButton [disabled]="form.invalid"type="submit" class="btn btn-primary" id="upsert">{{btnName}}</button>
+
+  <button #submitButton [disabled]="form.invalid"type="submit" class="btn btn-primary mr-1" id="upsert">{{btnName}}</button>
+  <button (click)="cancel()"  type="button" class="btn btn-danger" id="cancel">Cancel</button>
 
 </form>
 </div>

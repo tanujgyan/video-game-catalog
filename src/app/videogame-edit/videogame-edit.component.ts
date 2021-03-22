@@ -68,6 +68,10 @@ export class VideogameEditComponent implements OnInit {
       }
     );
   }
+  cancel()
+  {
+    this.router.navigate(["/videogame-list"]);
+  }
   get videogameName() { return this.form.get('videogameName'); }
   get publisherName() { return this.form.get('publisherName'); }
   get genere() { return this.form.get('genere'); }
