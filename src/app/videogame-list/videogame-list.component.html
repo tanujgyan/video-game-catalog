@@ -16,7 +16,7 @@
         <td>{{ videogame.publisherName }}</td>
         <td>{{ videogame.genere }}</td>
         <td>{{ videogame.platform }}</td>
-        <td><button render="renderer" id="editbutton" (click)="editbuttonclicked(videogame.videogameId )" class="btn btn-primary">Edit</button></td>
+        <td><button render="renderer" id="editbutton" (click)="editbuttonclicked(videogame.videogameId )" class="btn btn-primary" *ngIf="securityServiceObject.canEditVideogame && securityServiceObject.isAuthenticated">Edit</button></td>
       </tr>
     </tbody>
   </table>

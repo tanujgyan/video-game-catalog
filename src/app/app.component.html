@@ -1,6 +1,8 @@
+ {{securityObject|json}}
  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <a routerLink="/videogame-edit" routerLinkActive="active" class="navbar-brand ">Add New Videogame</a>
+  <a routerLink="/videogame-edit" *ngIf="securityObject.isAuthenticated && securityObject.canAddVideogame" routerLinkActive="active" class="navbar-brand ">Add New Videogame</a>
   <a routerLink="/videogame-list" routerLinkActive="active" class="navbar-brand">Videogame Catalog</a>
+  <a routerLink="/user-login" routerLinkActive="active" class="navbar-brand navbar-right">Login</a>
 </nav>
 <router-outlet></router-outlet> 
 

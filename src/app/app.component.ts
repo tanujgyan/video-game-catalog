@@ -1,3 +1,5 @@
+import { AppUserAuth } from './security/app-user-auth';
+import { SecurityServiceService } from './security/security-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'video-game-catalog';
+  securityObject: AppUserAuth= new AppUserAuth();
+  constructor(public securityService: SecurityServiceService)
+  {
+    this.securityObject= this.securityService.securityObject;
+  }
 }

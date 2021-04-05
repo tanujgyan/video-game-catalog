@@ -1,3 +1,5 @@
+import { AppUserAuth } from './../security/app-user-auth';
+import { SecurityServiceService } from './../security/security-service.service';
 import { VideogameModel } from './../shared/videogame-model';
 import { Component, OnDestroy, OnInit,Renderer2  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +15,7 @@ import { DataTablesModule } from 'angular-datatables';
 export class VideogameListComponent implements OnDestroy, OnInit {
   dtOptions: DataTables.Settings = {};
   videogames: VideogameModel[] = [];
+  securityServiceObject:AppUserAuth= new AppUserAuth();
   id!: string;
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
@@ -22,8 +25,12 @@ export class VideogameListComponent implements OnDestroy, OnInit {
     private httpClient: HttpClient,
     private service: VideogameServiceService,
     public renderer: Renderer2, 
-    private router: Router
-  ) {}
+    private router: Router,
+    private securityService: SecurityServiceService 
+  ) 
+  {
+    this.securityServiceObject=this.securityService.securityObject;
+  }
 
   ngOnInit(): void {
     this.dtOptions = {

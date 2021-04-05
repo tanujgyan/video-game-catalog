@@ -9,6 +9,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { VideogameEditComponent } from './videogame-edit/videogame-edit.component';
 
+import { UserLoginComponent } from './user-login/user-login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,10 @@ import { VideogameEditComponent } from './videogame-edit/videogame-edit.componen
     PageNotFoundComponent,
 
     VideogameEditComponent,
+
+ 
+
+    UserLoginComponent,
   ],
   imports: [
     BrowserModule,
